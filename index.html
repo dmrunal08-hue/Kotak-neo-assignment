@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project Page</title>
+<style>
+html,body{margin:0;padding:0;background:#fff}
+img{display:block;width:100%;height:auto}
+.frame{width:100%;height:100vh;border:0;display:block}
+.slide{position:relative;width:100%;aspect-ratio:6912/3888}
+.slide img{position:absolute;inset:0;height:100%}
+/* lavender box: x 36.76%→100%, full height; centre = 68.38% / 50% */
+.slide video{position:absolute;left:68.38%;top:50%;transform:translate(-50%,-50%);height:88%;width:auto;aspect-ratio:876/1824;border-radius:2%}
+</style></head><body>
+<img src="assets/slide-01.png" alt="Slide 1">
+<img src="assets/slide-02.png" alt="Slide 2">
+<img src="assets/slide-03.png" alt="Slide 3">
+<img src="assets/slide-04.png" alt="Slide 4">
+<img src="assets/slide-05.png" alt="Slide 5">
+<img src="assets/slide-06.png" alt="Slide 6">
+<img src="assets/slide-07.png" alt="Slide 7">
+<img src="assets/slide-08.png" alt="Slide 8">
+<img src="assets/slide-09.png" alt="Slide 9">
+<img src="assets/slide-10.png" alt="Slide 10">
+<img src="assets/slide-11.png" alt="Slide 11">
+<img src="assets/slide-12.png" alt="Slide 12">
+<img src="assets/slide-13.png" alt="Slide 13">
+<iframe id="bench" class="frame" scrolling="no" src="https://dmrunal08-hue.github.io/Competitive-Benchmark-Interactive-Kotak/" title="Competitive Benchmark" allowfullscreen></iframe>
+<img src="assets/slide-15.png" alt="Slide 15">
+<img src="assets/slide-16.png" alt="Slide 16">
+<img src="assets/slide-17.png" alt="Slide 17">
+<div class="slide"><img src="assets/slide-18.png" alt="Slide 18"><video src="assets/animation.mov" autoplay loop muted playsinline></video></div>
+<img src="assets/slide-19.png" alt="Slide 19">
+<script>
+/* Resize the benchmark iframe when its content grows/shrinks (e.g. "View data table"),
+   so the slides below move down/up accordingly. Needs the embedded page to post its height. */
+(function(){
+  var f=document.getElementById('bench');
+  addEventListener('message',function(e){
+    if(e.source!==f.contentWindow||!e.data||e.data.type!=='bench-height')return;
+    var h=Math.ceil(Number(e.data.height));
+    if(h>0)f.style.height=Math.max(h,innerHeight)+'px';
+  });
+})();
+</script>
+</body></html>
